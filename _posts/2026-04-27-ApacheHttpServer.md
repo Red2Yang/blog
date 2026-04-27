@@ -51,7 +51,7 @@ Linux可以通过软件包安装，网上教程更是数不胜数。因此本文
 
 解压到指定位置后，在对应位置的终端运行`.\httpd.exe -k install`，即可安装Apache到系统服务。同理，卸载使用`.\httpd.exe -k uninstall`。
 
-> 如果您需要为不同的服务使用特定命名的配置文件（不是网站配置，网站配置见后文），则必须使用以下命令：
+> 如果需要为不同的服务使用特定命名的配置文件（不是网站配置，网站配置见后文），则必须使用以下命令：
 >
 > ```PowerShell
 > .\httpd.exe -k install -n "MyServiceName" -f "c:\files\my.conf"
@@ -63,9 +63,9 @@ Linux可以通过软件包安装，网上教程更是数不胜数。因此本文
 > 常用命令：
 >
 > ```PowerShell
-> httpd -k start #启动
-> httpd -k stop #停止
-> httpd -k reload #重载配置
+> httpd -k start   #启动
+> httpd -k stop    #停止
+> httpd -k reload  #重载配置
 > ```
 {: .prompt-tip }
 
@@ -73,17 +73,14 @@ Linux可以通过软件包安装，网上教程更是数不胜数。因此本文
 
 首先需要修改`Apache24\conf\httpd.conf`文件，删除注释符就可以启用配置。
 
-Apache安装位置：`Define SRVROOT "C:/Program Files/Apache24"`
-
-服务器文件根目录（默认）：`ServerRoot "${SRVROOT}"`
+1. Apache安装位置：`Define SRVROOT "C:/Program Files/Apache24"`
+2. 服务器文件根目录（默认）：`ServerRoot "${SRVROOT}"`
 
 然后需要启动各种模块。
 
-比如常用的`LoadModule ssl_module modules/mod_ssl.so`激活`https`配置，
-
-`LoadModule proxy_http_module modules/mod_proxy_http.so`和`LoadModule proxy_module modules/mod_proxy.so`启用反向代理，
-
-`LoadModule vhost_alias_module modules/mod_vhost_alias.so`启用虚拟主机模块，这是当前网站配置所必须的，也是接下来内容的基础。
+1. 比如常用的`LoadModule ssl_module modules/mod_ssl.so`激活`https`配置，
+2. `LoadModule proxy_http_module modules/mod_proxy_http.so`和`LoadModule proxy_module modules/mod_proxy.so`启用反向代理，
+3. `LoadModule vhost_alias_module modules/mod_vhost_alias.so`启用虚拟主机模块，这是当前网站配置所必须的，也是接下来内容的基础。
 
 启用虚拟主机模块后，通过`Apache24\conf\extra\httpd-vhosts.conf`就可以指定端口和网站配置。
 
