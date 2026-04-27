@@ -1,6 +1,8 @@
 # RY的Github博客
 
-https://red2yang.github.io/blog
+<center>https://red2yang.github.io/blog</center>
+
+![image](assets/img/blog.png)
 
 ## 致谢
 
