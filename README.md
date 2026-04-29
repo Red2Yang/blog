@@ -1,4 +1,4 @@
-# RY的Github博客
+# Red2Yang的Github博客
 
 <center>https://red2yang.github.io/blog</center>
 
